@@ -1,7 +1,7 @@
 test("GET /api/v1/status", async () => {
   const res = await fetch("http://localhost:3000/api/v1/status");
   const data = await res.json();
-  console.log(data);
+
   expect(data.updated_at).toBeDefined();
   const parsedUpdatedAt = new Date(data.updated_at).toISOString();
   expect(data.updated_at).toEqual(parsedUpdatedAt);
