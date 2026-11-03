@@ -6,13 +6,26 @@ async function cleanDatabase() {
   await database.query("drop schema public cascade; create schema public;")
 }
 
-test('GET /api/v1/migration', async () => {
-  const res = await fetch("http://localhost:3000/api/v1/migrations", {
+test('POST /api/v1/migrations (primeira vez)', async () => {
+  const res1 = await fetch("http://localhost:3000/api/v1/migrations", {
     method: 'POST'
   });
-  expect(res.status).toBe(200);
+  expect(res1.status).toBe(201);
 
-  const responseBoby = await res.json();
+  const responseBoby = await res1.json();
 
   expect(Array.isArray(responseBoby)).toBe(true);
+  expect(responseBoby.length).toBeGreaterThan(0);
+});
+
+test('POST /api/v1/migrations (segunda vez)', async () => {
+  const res2 = await fetch("http://localhost:3000/api/v1/migrations", {
+    method: 'POST'
+  });
+  expect(res2.status).toBe(200);
+
+  const response2Boby = await res2.json();
+
+  expect(Array.isArray(response2Boby)).toBe(true);
+  expect(response2Boby.length).toBe(0);
 });
