@@ -21,8 +21,8 @@
     "service:stop": "docker compose -f infra/compose.yaml stop",
     "test": "npm run service:up && concurrently -n next,jest --hide next -k -s command-jest \"next dev\" \"jest --runInBand --verbose\"",
     "test:watch": "jest --watchAll --runInBand",
-    "lint:fix": "prettier --write .",
-    "lint:check": "prettier --check .",
+    "lint:prettier:fix": "prettier --write .",
+    "lint:prettier:check": "prettier --check .",
     "migration:create": "node-pg-migrate create -m infra/migrations create ",
     "migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up",
     "wait-for-postgres": "node infra/scripts/wait-for-postgres.js"
