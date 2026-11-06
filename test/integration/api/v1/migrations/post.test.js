@@ -3,12 +3,12 @@ import orchestrator from "test/orchestrator.js";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
-  await database.query("drop schema public cascade; create schema public;")
+  await database.query("drop schema public cascade; create schema public;");
 });
 
-test('POST /api/v1/migrations (primeira vez)', async () => {
+test("POST /api/v1/migrations (primeira vez)", async () => {
   const res1 = await fetch("http://localhost:3000/api/v1/migrations", {
-    method: 'POST'
+    method: "POST",
   });
   expect(res1.status).toBe(201);
 
@@ -18,9 +18,9 @@ test('POST /api/v1/migrations (primeira vez)', async () => {
   expect(responseBoby.length).toBeGreaterThan(0);
 });
 
-test('POST /api/v1/migrations (segunda vez)', async () => {
+test("POST /api/v1/migrations (segunda vez)", async () => {
   const res2 = await fetch("http://localhost:3000/api/v1/migrations", {
-    method: 'POST'
+    method: "POST",
   });
   expect(res2.status).toBe(200);
 
