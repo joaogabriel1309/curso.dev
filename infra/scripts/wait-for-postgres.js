@@ -10,7 +10,10 @@ const spinner = setInterval(() => {
 }, 80);
 
 function waitForPostgres() {
-  exec("docker exec postgres-dev-cursodev pg_isready --host localhost", handleReturn);
+  exec(
+    "docker exec postgres-dev-cursodev pg_isready --host localhost",
+    handleReturn,
+  );
 
   function handleReturn(error, stdout) {
     if (stdout.search("accepting connections") === -1) {

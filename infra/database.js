@@ -1,4 +1,4 @@
-import { Client } from 'pg';
+import { Client } from "pg";
 
 async function query(queryObject) {
   let client;
@@ -7,7 +7,7 @@ async function query(queryObject) {
     const result = await client.query(queryObject);
     return result;
   } catch (erro) {
-    console.error(erro)
+    console.error(erro);
   } finally {
     await client.end();
   }
@@ -35,8 +35,8 @@ function getSSLValues() {
   if (process.env.POSTGRES_CA) {
     return {
       ca: process.env.POSTGRES_CA,
-    }
+    };
   }
 
-  return process.env.POSTGRES_SSL === 'true';
+  return process.env.POSTGRES_SSL === "true";
 }
