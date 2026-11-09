@@ -33,6 +33,7 @@ const database = {
 
 export default database;
 
+//teste
 function getSSLValues() {
   if (process.env.POSTGRES_CA) {
     return {
