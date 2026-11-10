@@ -24,7 +24,7 @@
     "service:wait:database": "node infra/scripts/wait-for-postgres.js",
     "migrations:create": "node-pg-migrate create -m infra/migrations create ",
     "migrations:up": "node-pg-migrate -m infra/migrations --envPath .env.development up",
-    "test:watch": "jest --watchAll --runInBand",
+    "test:watch": "jest --watchAll --runInBand --verbose",
     "lint:prettier:fix": "prettier --write .",
     "lint:prettier:check": "prettier --check .",
     "lint:eslint:check": "eslint .",
